@@ -62,18 +62,18 @@ class MonthDaysView extends React.Component {
       let daysList = []
       for (let i = this.state.englishDayNames.indexOf(this.getMonthStartDayName()); i > 0; i--){
         daysList.push(
-          <MonthDay key={daysList.length.toString()} noHover></MonthDay>
+          <MonthDay className='month-day-item' key={daysList.length.toString()} noHover></MonthDay>
         )
       }
       for (let i = 1; i < this.monthDays() + 1; i++) {
         daysList.push(
-          <MonthDay selected={this.isSelectedDate(i)} key={daysList.length.toString()}>
-            <MonthDayButton selected={this.isSelectedDate(i)} onClick={this.props.setSelectedDate} value={i} type="button">{i}</MonthDayButton>
+          <MonthDay className={'month-day-item ' + (this.isSelectedDate(i) ? "selected" : "")} selected={this.isSelectedDate(i)} key={daysList.length.toString()}>
+            <MonthDayButton className='month-day-btn' selected={this.isSelectedDate(i)} onClick={this.props.setSelectedDate} value={i} type="button">{i}</MonthDayButton>
           </MonthDay>
         )
       }
       
-      return <MonthDays>
+      return <MonthDays className='month-days-list'>
       {
         daysList
       }

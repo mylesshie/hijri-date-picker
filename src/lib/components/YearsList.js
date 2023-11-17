@@ -27,12 +27,12 @@ class YearsList extends Component {
     // Generate a select options of all supported years
     for(let i = this.state.minYear; i <= this.state.maxYear; i = i + 1){
       yearsList.push(
-        <option key={i} value={i}>{i}</option>
+        <option className='year-option' key={i} value={i}>{i}</option>
       )
     }
     return (
-      <YearListContainer>
-        <YearSelect onChange={this.props.onChange} value={this.props.currentTime.iYear()}>
+      <YearListContainer className='year-list-container'>
+        <YearSelect className='year-selector' onChange={this.props.onChange} value={this.props.currentTime.iYear()}>
           {yearsList} 
         </YearSelect>
       </YearListContainer>

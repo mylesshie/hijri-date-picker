@@ -171,6 +171,7 @@ class HijriDatePicker extends Component {
           </Reference>
           {this.state.calenderShown &&
             <Popper
+              className="calender-popper"
               placement="bottom"
               modifiers={{
                 hide: { enabled: true},
@@ -179,13 +180,13 @@ class HijriDatePicker extends Component {
             >
               {({ ref, style, placement, arrowProps }) => (
                 <div>
-                  <HijriCalender ref={ref} style={style} data-placement={placement}>
-                    <HijriCalenderControls>
-                      <PreviousButton onClick={this.subtractMonth} type="button" >{'<'}</PreviousButton>
-                      <MonthName>{this.state.currentTime.format('iMMMM') + ' ('+this.state.currentTime.format('iMM')+') ' + this.state.currentTime.format('iYYYY')}</MonthName>
-                      <NextButton onClick={this.addMonth} type="button" > {'>'} </NextButton>
+                  <HijriCalender className='hijri-calender-wrap' ref={ref} style={style} data-placement={placement}>
+                    <HijriCalenderControls className='hijri-calender-controls'>
+                      <PreviousButton className='hijri-btn previous-btn' onClick={this.subtractMonth} type="button" >{'<'}</PreviousButton>
+                      <MonthName className='month-name'>{this.state.currentTime.format('iMMMM') + ' ('+this.state.currentTime.format('iMM')+') ' + this.state.currentTime.format('iYYYY')}</MonthName>
+                      <NextButton className='hijri-btn next-btn' onClick={this.addMonth} type="button" > {'>'} </NextButton>
                       {this.props.quickSelect &&
-                        <YearAndMonthList>
+                        <YearAndMonthList className='year-month-list-wrap'>
                           <YearsList currentTime={this.state.currentTime} onChange={this.handelYearChange}/>
                           <MonthList currentTime={this.state.currentTime} onChange={this.handelMonthChange}/>
                         </YearAndMonthList>

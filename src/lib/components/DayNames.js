@@ -27,9 +27,9 @@ class DayNames extends Component {
     
     render() {
       return (
-        <DayNamesList>
+        <DayNamesList className='day-names-list'>
           {
-            this.state.arabicDayNames.map((item, key) =>  <DayName key={key.toString()}>{item}</DayName>)
+            this.state.arabicDayNames.map((item, key) =>  <DayName className='day-name-item' key={key.toString()}>{item}</DayName>)
           }
         </DayNamesList>
       )
