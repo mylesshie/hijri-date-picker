@@ -1,4 +1,10 @@
-#app {
+
+.hijri-calendar-pop .ant-popover-arrow {
+  display: none;
+}
+.hijri-calendar-pop .ant-popover-content {
+  margin-top: -12px;;
+}#app {
     text-align: center;
 }
 

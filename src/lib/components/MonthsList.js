@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Select } from "antd"; 
 
+const { Option } = Select;
 const MonthListContainer = styled.span`
   padding: 5px;
 `
 
-const MonthSelect = styled.select`
+const MonthSelect = styled.div`
   width: 100px;
   -webkit-appearance: menulist-button;
   background: transparent;
@@ -36,10 +38,22 @@ class MonthsList extends Component {
   render() {
     return (
       <MonthListContainer className='month-list-container'>
-        <MonthSelect className='month-selector' onChange={this.props.onChange} value={this.props.currentTime.iMonth()}>
-          {
-            this.state.months.map((item, key) => <option className='month-option' key={item.number} value={item.number}>{item.name}</option>)
-          }
+        <MonthSelect>
+          <Select style={{width: "100%"}}  className='month-selector' onChange={this.props.onChange} value={this.props.currentTime.iMonth()} getPopupContainer={(triggerNode) => {
+              if (triggerNode) {
+                return triggerNode.parentElement;
+              }
+              return document.body;
+            }}>
+            {
+              this.state.months.map((item, key) => <Option className='month-option' key={item.number} value={item.number}>{item.name}</Option>)
+            }
+          </Select>
+          {/* <MonthSelect className='month-selector' onChange={this.props.onChange} value={this.props.currentTime.iMonth()}>
+            {
+              this.state.months.map((item, key) => <option className='month-option' key={item.number} value={item.number}>{item.name}</option>)
+            }
+          </MonthSelect> */}
         </MonthSelect>
       </MonthListContainer>
     )

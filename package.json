@@ -1,6 +1,6 @@
 {
   "name": "hijri-date-picker-for-bf",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "A simple and reusable react component for hijir date pickre",
   "main": "build/index.js",
   "scripts": {
@@ -42,5 +42,8 @@
   "dependencies": {
     "moment-hijri": "^2.1.1",
     "styled-components": "^4.1.3"
+  },
+  "peerDependencies": {
+    "antd": "3"
   }
 }

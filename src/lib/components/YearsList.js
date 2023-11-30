@@ -1,12 +1,15 @@
 // Hijri year (1356 to 1500)
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Select } from "antd"; 
+
+const { Option } = Select;
 
 const YearListContainer = styled.span`
   padding: 5px;
 `
 
-const YearSelect = styled.select`
+const YearSelect = styled.div`
   width: 100px;
   -webkit-appearance: menulist-button;
   background: transparent;
@@ -27,13 +30,23 @@ class YearsList extends Component {
     // Generate a select options of all supported years
     for(let i = this.state.minYear; i <= this.state.maxYear; i = i + 1){
       yearsList.push(
-        <option className='year-option' key={i} value={i}>{i}</option>
+        <Option className='year-option' key={i} value={i}>{i}</Option>
       )
     }
     return (
       <YearListContainer className='year-list-container'>
-        <YearSelect className='year-selector' onChange={this.props.onChange} value={this.props.currentTime.iYear()}>
-          {yearsList} 
+        <YearSelect>
+          <Select style={{width: "100%"}} className='year-selector' onChange={this.props.onChange} value={this.props.currentTime.iYear()} getPopupContainer={(triggerNode) => {
+              if (triggerNode) {
+                return triggerNode.parentElement;
+              }
+              return document.body;
+            }}>
+            {yearsList} 
+          </Select>
+          {/* <YearSelect className='year-selector' onChange={this.props.onChange} value={this.props.currentTime.iYear()}>
+            {yearsList} 
+          </YearSelect> */}
         </YearSelect>
       </YearListContainer>
     )
