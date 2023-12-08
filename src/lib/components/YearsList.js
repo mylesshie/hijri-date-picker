@@ -10,7 +10,7 @@ const YearListContainer = styled.span`
 `
 
 const YearSelect = styled.div`
-  width: 100px;
+  width: 120px;
   -webkit-appearance: menulist-button;
   background: transparent;
   height: 25px;
@@ -35,7 +35,7 @@ class YearsList extends Component {
     }
     return (
       <YearListContainer className='year-list-container'>
-        <YearSelect>
+        <YearSelect className='year-list-box'>
           <Select style={{width: "100%"}} className='year-selector' onChange={this.props.onChange} value={this.props.currentTime.iYear()} getPopupContainer={(triggerNode) => {
               if (triggerNode) {
                 return triggerNode.parentElement;

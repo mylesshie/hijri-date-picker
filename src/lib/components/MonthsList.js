@@ -8,7 +8,7 @@ const MonthListContainer = styled.span`
 `
 
 const MonthSelect = styled.div`
-  width: 100px;
+  width: 120px;
   -webkit-appearance: menulist-button;
   background: transparent;
   height: 25px;
@@ -38,7 +38,7 @@ class MonthsList extends Component {
   render() {
     return (
       <MonthListContainer className='month-list-container'>
-        <MonthSelect>
+        <MonthSelect className='month-list-box'>
           <Select style={{width: "100%"}}  className='month-selector' onChange={this.props.onChange} value={this.props.currentTime.iMonth()} getPopupContainer={(triggerNode) => {
               if (triggerNode) {
                 return triggerNode.parentElement;
